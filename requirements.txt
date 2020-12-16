@@ -1,5 +1,6 @@
 python
 numpy
+scikit-learn
 matplotlib
 SimpleITK
 tqdm
