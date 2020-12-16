@@ -54,7 +54,7 @@ def run_rg(image_names):
         output_path.mkdir(exist_ok=True, parents=True)
         print('Reading finished, begin region growing')
         #print(np.sum(label))
-        img_rg = region_growing(img, GROWING_NEIGHBOR, RG_THRESHOLD, seed[output_name], False,np.sum(label)+10000)
+        img_rg = region_growing(img, GROWING_NEIGHBOR, RG_THRESHOLD, seed[output_name], False,np.sum(label)*1.05)
         write_img(img_rg, str(output_path / output_name))
 
         valid_results = get_all_validation(img_rg, label, str(image_name), 'traditional_region_growing')
@@ -66,7 +66,7 @@ def run_rg(image_names):
         output_path2 = root_path / 'output' / 'new_region_growing'
         output_path2.mkdir(exist_ok=True, parents=True)
         print('begin region growing')
-        img_rg2 = region_growing(img, GROWING_NEIGHBOR, RG_THRESHOLD, seed[output_name], True,np.sum(label)+10000)
+        img_rg2 = region_growing(img, GROWING_NEIGHBOR, RG_THRESHOLD, seed[output_name], True,np.sum(label)*1.05)
         write_img(img_rg2, str(output_path2 / output_name))
 
         valid_results = get_all_validation(img_rg2, label, str(image_name), 'new_region_growing')
