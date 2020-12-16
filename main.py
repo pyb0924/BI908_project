@@ -2,10 +2,9 @@ from utils import *
 from validation import *
 from region_growing import region_growing
 from otsu import otsu2Threshold
+import argparse
 
-if __name__ == '__main__':
-    image_names = (data_path / 'images').glob('*')
-
+def run_otsu(image_names):
     for image_name in image_names:
         print('begin processing: ' + str(image_name))
         img = read_img(str(image_name))
@@ -40,6 +39,7 @@ if __name__ == '__main__':
         write_result(valid_results, result_file_name)
         print('\n')
 
+def run_rg(image_names):
     for image_name in image_names:
         img = read_img(str(image_name))
         label_name = str(image_name).replace('images', 'labels').replace('Tumor', 'Seg')
@@ -81,5 +81,20 @@ if __name__ == '__main__':
         print(valid_results)
         write_result(valid_results, result_file_name)
         print('\n')
+
+if __name__ == '__main__':
+    image_names = (data_path / 'images').glob('*')
+    parser = argparse.ArgumentParser()
+    arg = parser.add_argument
+    arg('--method', type=str, default='all', choices=['otsu', 'rg', 'all'])
+    args = parser.parse_args()
+
+    if args.method=='otsu':
+        run_otsu(image_names)
+    elif args.method=='rg':
+        run_rg(image_names)
+    elif args.method=='all':
+        run_otsu(image_names)
+        run_rg(image_names)
 
     print('done!')
