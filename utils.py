@@ -15,7 +15,6 @@ import json
         RG_THRESHOLD
         seed(dict)
         
-        
     image file operation:
         read_img(img_path:str)
         write_img(img: 3d-array ,img_path:str)
