@@ -23,9 +23,9 @@ def otsu2Threshold(img, t):
 
     for i in tqdm(range(t, 256)):
         N_object += hest[i]
-        for k in range(i, 256, 1):
+        for k in range(i+1, 256, 1):
             N_blackground += hest[k]
-        for j in range(i, 256, 1):
+        for j in range(i+1, 256, 1):
             gSum_object = 0
             gSum_middle = 0
             gSum_blackground = 0

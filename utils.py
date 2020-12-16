@@ -36,8 +36,8 @@ result_file_name = 'result.json'
 OTSU_BG = 10
 GROWING_NEIGHBOR = 2
 RG_THRESHOLD = 4
-seed = [100, 82, 94]
-result_keys = ['sample_name', 'method', 'sensitivity', 'specificity', 'accuracy', 'iou', 'dice']
+seed = {'BRATS_008_Output.nii.gz':[84,148,83]}
+result_keys = ['sample_name', 'method', 'sensitivity', 'specificity','precision', 'accuracy', 'iou', 'dice']
 
 
 def read_img(img_path):
@@ -77,42 +77,41 @@ def write_result(result, file_name):
         json.dump(data, f, indent=4, ensure_ascii=False)
     return
 
-
-def dilate(im, t):
-    new_img = im + 0
-    n, m, l = im.shape
-    print('begin dilate')
+def dilate(im,t):
+    newimg=im+0
+    n,m,l=im.shape
+    print('dilate')
     for i in tqdm(range(n)):
         for j in range(m):
             for k in range(l):
-                if im[i][j][k]:
-                    for ii in range(-t, t + 1):
-                        for jj in range(-t, t + 1):
-                            for kk in range(-t, t + 1):
-                                new_img[i + ii][j + jj][k + kk] = 1
+                if (im[i][j][k]!=0):
+                    for ii in range(-t,t+1):
+                        for jj in range(-t,t+1):
+                            for kk in range(-t,t+1):
+                                if (i+ii>=0)and(i+ii<=n)and(j+jj>=0)and(j+jj<=m)and(k+kk>=0)and(k+kk<=l):
+                                    newimg[i+ii][j+jj][k+kk]=1
     print()
-    return new_img
+    return newimg
 
-
-def erode(im, t):
-    new_img = im + 0
-    n, m, l = im.shape
-    print('begin erode')
+def erode(im,t):
+    newimg=im+0
+    n,m,l=im.shape
+    print('erode')
     for i in tqdm(range(n)):
         for j in range(m):
             for k in range(l):
-                if im[i][j][k]:
-                    flag = 0
-                    for ii in range(-t, t + 1):
-                        for jj in range(-t, t + 1):
-                            for kk in range(-t, t + 1):
-                                if not im[i + ii][j + jj][k + kk]:
-                                    flag = 1
+                if (im[i][j][k]!=0):
+                    flag=0
+                    for ii in range(-t,t+1):
+                        for jj in range(-t,t+1):
+                            for kk in range(-t,t+1):
+                                if (i+ii>=0)and(i+ii<=n)and(j+jj>=0)and(j+jj<=m)and(k+kk>=0)and(k+kk<=l):
+                                    if (im[i+ii][j+jj][k+kk]==0):
+                                        flag=1
                     if flag:
-                        new_img[i][j][k] = 0
+                        newimg[i][j][k]=0
     print()
-    return new_img
-
+    return newimg
 
 def closing(im, t):
     tmp = dilate(im, t)

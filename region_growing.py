@@ -2,7 +2,7 @@ import numpy as np
 seed = [100, 82, 94]  # 区域扩增的起始种子
 
 
-def region_growing(im, t, threshold, seed,abs_flag): # abs_flag=True: traditional False: new
+def region_growing(im, t, threshold, seed,abs_flag,tail_max=500000): # abs_flag=True: traditional False: new
     n, m, l = im.shape
     xlist = [seed[0]]
     ylist = [seed[1]]
@@ -12,6 +12,9 @@ def region_growing(im, t, threshold, seed,abs_flag): # abs_flag=True: traditiona
     head = 0
     tail = 0
     while head <= tail:
+        #print(head,tail)
+        if tail>tail_max:
+            break
         x = xlist[head]
         y = ylist[head]
         z = zlist[head]
@@ -37,6 +40,12 @@ def region_growing(im, t, threshold, seed,abs_flag): # abs_flag=True: traditiona
                                 ylist.append(yy)
                                 zlist.append(zz)
         head = head + 1
+    for index in range(head,tail):
+        x=xlist[index]
+        y=ylist[index]
+        z=zlist[index]
+        ifsearch[x][y][z]=1
+    print(head,tail)
     return ifsearch
 
 
