@@ -1,1 +1,1 @@
-python main.py --method rg
+python main.py --method all

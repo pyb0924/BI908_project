@@ -90,7 +90,7 @@ def run_rg(image_names):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     arg = parser.add_argument
-    arg('--method', type=str, default='rg', choices=['otsu', 'rg', 'all'])
+    arg('--method', type=str, default='all', choices=['otsu', 'rg', 'all'])
     args = parser.parse_args()
 
     image_names = (data_path / 'images').glob('*')

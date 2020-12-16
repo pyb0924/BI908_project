@@ -2,7 +2,8 @@ import numpy as np
 seed = [100, 82, 94]  # 区域扩增的起始种子
 
 
-def region_growing(im, t, threshold, seed,abs_flag,tail_max=500000): # abs_flag=True: traditional False: new
+def region_growing(im, t, threshold, seed,abs_flag,tail_max=500000): 
+    # abs_flag=True: traditional False: new
     n, m, l = im.shape
     xlist = [seed[0]]
     ylist = [seed[1]]
