@@ -1,0 +1,6 @@
+Dataset_Group/
+train_data/
+
+.idea/
+.vscode/
+__pycache__/

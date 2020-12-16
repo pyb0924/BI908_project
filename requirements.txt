@@ -1,0 +1,6 @@
+python
+matplotlib
+SimpleITK
+tqdm
+nibabel
+opencv-python
