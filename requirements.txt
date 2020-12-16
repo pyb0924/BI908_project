@@ -1,4 +1,5 @@
 python
+numpy
 matplotlib
 SimpleITK
 tqdm
