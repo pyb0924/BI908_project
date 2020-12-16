@@ -37,7 +37,7 @@ OTSU_BG = 10
 GROWING_NEIGHBOR = 2
 RG_THRESHOLD = 4
 seed = [100, 82, 94]
-result_keys = ['sample_name', 'method', 'sensitivity', 'specificity', 'iou', 'dice']
+result_keys = ['sample_name', 'method', 'sensitivity', 'specificity', 'accuracy', 'iou', 'dice']
 
 
 def read_img(img_path):

@@ -1,0 +1,4 @@
+sample_name,method,sensitivity,specificity,iou,dice
+Dataset_Group\04\images\BRATS_008_Tumor.nii.gz,multi-threshold Otsu,0.9343460299905669,0.9949915007319685,0.726612735946899,0.8416626621816434
+Dataset_Group\04\images\BRATS_033_Tumor.nii.gz,multi-threshold Otsu,0.799433641683972,0.9966761731387,0.6261283573482771,0.7700847900706963
+Dataset_Group\04\images\BRATS_259_Tumor.nii.gz,multi-threshold Otsu,0.801038321380435,0.998380338621205,0.6465216223475692,0.7853181076672104

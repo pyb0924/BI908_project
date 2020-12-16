@@ -1,1 +1,1 @@
-conda activate image_processing && python main.py --method all
+conda activate image_processing && python main.py --method otsu

@@ -18,6 +18,7 @@ BI908生物医学图像处理（1）大作业。对给定的脑肿瘤图像进�
 ## Dependencies
 - python
 - numpy
+- pandas
 - scikit-learn
 - matplotlib
 - SimpleITK

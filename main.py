@@ -1,5 +1,5 @@
 from utils import *
-from validation import *
+from validation import get_all_validation
 from region_growing import region_growing
 from otsu import otsu2Threshold
 import argparse
@@ -86,7 +86,6 @@ def run_rg(image_names):
 
 
 if __name__ == '__main__':
-
     parser = argparse.ArgumentParser()
     arg = parser.add_argument
     arg('--method', type=str, default='all', choices=['otsu', 'rg', 'all'])
