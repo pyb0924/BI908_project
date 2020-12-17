@@ -4,6 +4,7 @@
 \usepackage{geometry}
 \usepackage{fancyhdr}
 \usepackage{lastpage}
+\usepackage{enumerate}
 \geometry{left=2.54cm,right=2.54cm,top=3.18cm,bottom=3.18cm}%页边距
 \pagestyle{fancy}
 \lhead{\includegraphics[scale=1]{sjtu-logo-red.pdf}}  
@@ -18,7 +19,7 @@
         \textsc{\Huge \bfseries 课程报告}\\[1.5cm]
         \includegraphics[width=0.3\textwidth]{sjtu-badge-blue.pdf}\\[0.5cm]    
 
-        \Huge \bfseries{BI908 多种方法实现的脑肿瘤分割}\\[1cm]
+        \Huge \bfseries{BI908 脑肿瘤分割项目报告}\\[1cm]
         \Large \bfseries{518021910971 裴奕博}\\
         \Large \bfseries{学号 丁一}\\
         \Large \bfseries{学号 陈波}\\
@@ -28,10 +29,47 @@
 \tableofcontents
 %正文
 
+\newpage
 \section{项目简介与预处理}
-\subsection{项目背景}
-\subsection{所选数据}
+\subsection{项目简介}
+本项目采用了阈值分割，区域增长，深度学习等多种分割算法，结合锐化滤波，形态学处理等辅助增强手段，对给定的脑肿瘤进行了分割，并取得了不错的效果。整个项目均采用自己实现的Python算法，项目的总流程如下：
+\begin{figure}[H]
+    \centering  %图片全局居中
+    \includegraphics[width=\textwidth]{figure/workflow.png}
+    \caption{总工作流程图}
+\end{figure}
+其中：
+% TODO
+\begin{enumerate}[1)]
+    \item nii.gz文件的输入输出均由SimpleITK包完成
+    \item 数据预处理部分的算法包括 % TODO
+    \item 图像分割算法包括：去除背景的三维Otsu算法，传统的三维区域增长算法，改进后的三维区域增长算法。
+    \item 分割结果的形态学后处理方法包括：开运算和闭运算操作。
+\end{enumerate}
+
+我们组的编号为04，采用的数据集是Dataset\_Group/04文件夹下的三个待分割样本，编号分别为$BRAT\_008,BRAT\_033,BRAT\_259$。
+
+
 \subsection{各文件（夹）功能}
+\begin{itemize}
+    \item README.md文件：说明了本项目的主要信息和使用方法。
+    \item requirements.txt文件：说明了本项目所需环境中的依赖包。
+    \item Dataset\_Group文件夹：存放待分割样本和标签。
+    \item train\_data文件夹：存放经切片之后的二维图像，可供深度学习使用。
+    \item output文件夹：存放经过算法之后输出的文件，文件夹下共由5个子文件夹，对应5种分割和结果后处理的方法。
+    \item run.bat文件：命令行运行脚本，用户若需要再不同的分割方式下进行切换，可以直接在该文件中修改参数实现。
+    \item main.py文件：整个项目的主函数，包含了从数据读入，调用算法和结果评估，输出结果的全过程。
+    \item iotest.py/sitk\_test.py/iotest.nii.gz文件：项目实现过程中的调试文件和调试输出，用户使用时不要运行。
+    \item prepare.py文件：用于将原始数据切片并上采样至256$\times$256的二维图像，其结果输出为jpg格式，存放在train\_data文件夹中。
+    \item otsu.py文件：实现了三维的Otsu阈值分割函数。
+    \item region\_growing.py文件：实现了三维的区域增长分割函数。
+    \item validation.py文件：实现了混淆矩阵(confusion matrix)和所有评价指标的求取。
+    \item utils.py文件：存放运行过程中所需的常量。实现其余所有需要用到的辅助函数（如输入输出、可视化、形态学算法等）
+    \item result.json文件：存放分割算法的评价指标原始数据。
+    \item result\_to\_csv.py文件：将json中的原始数据读出后转换并整理为csv格式。
+    \item result.csv文件：存放本项目各方法的最终对比结果。
+\end{itemize}
+
 \subsection{预处理方法}
 
 \section{实现方法与结果}
@@ -54,6 +92,12 @@
 
 \section{成员分工与贡献}
 \subsection{裴奕博}
+\begin{itemize}
+    \item 完成了输入输出、可视化、结果评估、运行脚本等辅助函数的实现。
+    \item 尝试了用Pytorch实现UNet等网络结构进行深度学习的算法。
+    \item 与组内其他成员共同讨论，提出了分割算法改进的思路。
+    \item 完成了后续说明文档的书写，并与组内其他成员共同完成了项目报告。
+\end{itemize}
 \subsection{丁一}
 \subsection{陈波}
 \subsection{栗行健}
