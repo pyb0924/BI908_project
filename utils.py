@@ -4,7 +4,8 @@ from tqdm import tqdm
 from pathlib import Path
 from nibabel.viewers import OrthoSlicer3D
 import json
-
+import numpy as np
+from scipy.signal import convolve2d
 '''
     ----------Header----------
     constant:
@@ -76,40 +77,34 @@ def write_result(result, file_name):
         json.dump(data, f, indent=4, ensure_ascii=False)
     return
 
+
+def convolve3d(img,kernel):
+    n,m,l=img.shape
+    kn,km,kl=kernel.shape
+    img_convolve3d=np.zeros([n,m,l])
+    kn=int((kn-1)/2)
+    #print(kn)
+    for i in tqdm(range(-kn,kn+1)):
+        img_convolve2d=np.zeros([n,m,l])
+        for j in range(n):
+            if (i+j>=0)and(i+j<n): 
+                img_convolve2d[i+j]=convolve2d(img[j],kernel[i+kn],boundary='symm',mode='same') 
+        img_convolve3d  +=  img_convolve2d
+    return img_convolve3d
+
+
 def dilate(im,t):
-    newimg=im+0
-    n,m,l=im.shape
-    print('dilate')
-    for i in tqdm(range(n)):
-        for j in range(m):
-            for k in range(l):
-                if (im[i][j][k]!=0):
-                    for ii in range(-t,t+1):
-                        for jj in range(-t,t+1):
-                            for kk in range(-t,t+1):
-                                if (i+ii>=0)and(i+ii<=n)and(j+jj>=0)and(j+jj<=m)and(k+kk>=0)and(k+kk<=l):
-                                    newimg[i+ii][j+jj][k+kk]=1
-    print()
+    kernel=np.ones([2*t+1,2*t+1,2*t+1])
+    newimg=convolve3d(im,kernel)
+    newimg[newimg>0]=1
     return newimg
 
 def erode(im,t):
-    newimg=im+0
-    n,m,l=im.shape
-    print('erode')
-    for i in tqdm(range(n)):
-        for j in range(m):
-            for k in range(l):
-                if (im[i][j][k]!=0):
-                    flag=0
-                    for ii in range(-t,t+1):
-                        for jj in range(-t,t+1):
-                            for kk in range(-t,t+1):
-                                if (i+ii>=0)and(i+ii<=n)and(j+jj>=0)and(j+jj<=m)and(k+kk>=0)and(k+kk<=l):
-                                    if (im[i+ii][j+jj][k+kk]==0):
-                                        flag=1
-                    if flag:
-                        newimg[i][j][k]=0
-    print()
+    kernel=np.ones([2*t+1,2*t+1,2*t+1])
+    newimg=convolve3d(im,kernel)
+    k=int(np.power(2*t+1,3))
+    newimg[newimg<k]=0
+    newimg[newimg==k]=1
     return newimg
 
 def closing(im, t):
