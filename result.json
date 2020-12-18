@@ -2,9 +2,9 @@
     {
         "sample_name": "Dataset_Group\\04\\images\\BRATS_008_Tumor.nii.gz",
         "method": "multi-threshold Otsu",
-        "sensitivity": 0.9343460299905669,
-        "specificity": 0.9949915007319685,
-        "precision": 0.7657075529538463,
+        "sensitivity": 0.7657075529538463,
+        "specificity": 0.9988453658635369,
+        "precision": 0.9343460299905669,
         "accuracy": 0.9939473566308243,
         "iou": 0.726612735946899,
         "dice": 0.8416626621816434
@@ -12,9 +12,9 @@
     {
         "sample_name": "Dataset_Group\\04\\images\\BRATS_008_Tumor.nii.gz",
         "method": "Otsu_with_opening_closing",
-        "sensitivity": 0.9696024411939118,
-        "specificity": 0.9965090566946897,
-        "precision": 0.8368493727641562,
+        "sensitivity": 0.8368493727641562,
+        "specificity": 0.9994369842860152,
+        "precision": 0.9696024411939118,
         "accuracy": 0.9960211693548388,
         "iou": 0.8154553483297834,
         "dice": 0.8983480084817302
@@ -22,9 +22,9 @@
     {
         "sample_name": "Dataset_Group\\04\\images\\BRATS_033_Tumor.nii.gz",
         "method": "multi-threshold Otsu",
-        "sensitivity": 0.799433641683972,
-        "specificity": 0.9966761731387,
-        "precision": 0.7428145419462352,
+        "sensitivity": 0.7428145419462352,
+        "specificity": 0.9975892856636357,
+        "precision": 0.799433641683972,
         "accuracy": 0.994335685483871,
         "iou": 0.6261283573482771,
         "dice": 0.7700847900706963
@@ -32,9 +32,9 @@
     {
         "sample_name": "Dataset_Group\\04\\images\\BRATS_033_Tumor.nii.gz",
         "method": "Otsu_with_opening_closing",
-        "sensitivity": 0.9388746931208979,
-        "specificity": 0.9976982863447326,
-        "precision": 0.8217778362496163,
+        "sensitivity": 0.8217778362496163,
+        "specificity": 0.9993079180416122,
+        "precision": 0.9388746931208979,
         "accuracy": 0.997040770609319,
         "iou": 0.7800441243808017,
         "dice": 0.876432346475843
@@ -42,9 +42,9 @@
     {
         "sample_name": "Dataset_Group\\04\\images\\BRATS_259_Tumor.nii.gz",
         "method": "multi-threshold Otsu",
-        "sensitivity": 0.801038321380435,
-        "specificity": 0.998380338621205,
-        "precision": 0.7702030302545477,
+        "sensitivity": 0.7702030302545477,
+        "specificity": 0.9986512882470098,
+        "precision": 0.801038321380435,
         "accuracy": 0.9970519713261649,
         "iou": 0.6465216223475692,
         "dice": 0.7853181076672104
@@ -52,9 +52,9 @@
     {
         "sample_name": "Dataset_Group\\04\\images\\BRATS_259_Tumor.nii.gz",
         "method": "Otsu_with_opening_closing",
-        "sensitivity": 0.7335106144583713,
-        "specificity": 0.9984873146709373,
-        "precision": 0.7855462937778986,
+        "sensitivity": 0.7855462937778986,
+        "specificity": 0.9979879300619018,
+        "precision": 0.7335106144583713,
         "accuracy": 0.9965006720430107,
         "iou": 0.6111325475162122,
         "dice": 0.7586372064276885
@@ -62,69 +62,69 @@
     {
         "sample_name": "Dataset_Group\\04\\images\\BRATS_008_Tumor.nii.gz",
         "method": "traditional_region_growing",
-        "sensitivity": 0.670589848133273,
-        "specificity": 0.9936437205555207,
-        "precision": 0.7041248820434081,
-        "accuracy": 0.9865172491039427,
-        "iou": 0.5231693114567075,
-        "dice": 0.6869483353185026
+        "sensitivity": 0.6908391045428616,
+        "specificity": 0.9980753809508937,
+        "precision": 0.8850971981257086,
+        "accuracy": 0.9916206317204301,
+        "iou": 0.6339809482805016,
+        "dice": 0.7759955205691512
     },
     {
         "sample_name": "Dataset_Group\\04\\images\\BRATS_008_Tumor.nii.gz",
         "method": "new_region_growing",
-        "sensitivity": 0.8572175679106372,
-        "specificity": 0.9978536373059369,
-        "precision": 0.9000901001764684,
-        "accuracy": 0.9947512320788531,
-        "iou": 0.7827391163243544,
-        "dice": 0.8781308595934141
+        "sensitivity": 0.7713374811402737,
+        "specificity": 0.9998035565980671,
+        "precision": 0.9882715374737014,
+        "accuracy": 0.9950036962365592,
+        "iou": 0.7643407330705916,
+        "dice": 0.8664321111493719
     },
     {
         "sample_name": "Dataset_Group\\04\\images\\BRATS_008_Tumor.nii.gz",
         "method": "new_region_growing_with_closing",
-        "sensitivity": 0.7445080195748839,
-        "specificity": 0.9991083830869769,
-        "precision": 0.9587085285948105,
-        "accuracy": 0.9922205421146953,
-        "iou": 0.7213764496808797,
-        "dice": 0.8381390948094047
+        "sensitivity": 0.8650203391818477,
+        "specificity": 0.9994933888271642,
+        "precision": 0.9734339658865244,
+        "accuracy": 0.996668234767025,
+        "iou": 0.845070495893165,
+        "dice": 0.9160305774485671
     },
     {
         "sample_name": "Dataset_Group\\04\\images\\BRATS_033_Tumor.nii.gz",
         "method": "traditional_region_growing",
-        "sensitivity": 0.6897850764720131,
-        "specificity": 0.9964310865125473,
-        "precision": 0.7242818927334123,
-        "accuracy": 0.9923192204301076,
-        "iou": 0.5463272313483689,
-        "dice": 0.7066127017267639
+        "sensitivity": 0.7268078761566461,
+        "specificity": 0.995265251756158,
+        "precision": 0.6650695430942464,
+        "accuracy": 0.991836917562724,
+        "iou": 0.5320616127437446,
+        "dice": 0.6945694720343316
     },
     {
         "sample_name": "Dataset_Group\\04\\images\\BRATS_033_Tumor.nii.gz",
         "method": "new_region_growing",
-        "sensitivity": 0.8549842129003158,
-        "specificity": 0.9986764728922166,
-        "precision": 0.8977502960136824,
-        "accuracy": 0.9967496639784946,
-        "iou": 0.7791149068322981,
-        "dice": 0.87584551603753
+        "sensitivity": 0.9083804762531246,
+        "specificity": 0.9976139056283849,
+        "precision": 0.8312118780096308,
+        "accuracy": 0.9964743503584229,
+        "iou": 0.7669164580957599,
+        "dice": 0.868084571380676
     },
     {
         "sample_name": "Dataset_Group\\04\\images\\BRATS_033_Tumor.nii.gz",
         "method": "new_region_growing_with_closing",
-        "sensitivity": 0.7850252674316484,
-        "specificity": 0.9994352086212378,
-        "precision": 0.9564618690523177,
-        "accuracy": 0.996099126344086,
-        "iou": 0.7579407553621819,
-        "dice": 0.8623052319030242
+        "sensitivity": 0.963513572775512,
+        "specificity": 0.995946668845023,
+        "precision": 0.7545970971486664,
+        "accuracy": 0.995532482078853,
+        "iou": 0.7336334070161145,
+        "dice": 0.8463535647698732
     },
     {
         "sample_name": "Dataset_Group\\04\\images\\BRATS_259_Tumor.nii.gz",
         "method": "traditional_region_growing",
-        "sensitivity": 1.0,
-        "specificity": 0.9930008842980806,
-        "precision": 0.00023998848055293347,
+        "sensitivity": 0.00023998848055293347,
+        "specificity": 1.0,
+        "precision": 1.0,
         "accuracy": 0.9930008960573476,
         "iou": 0.00023998848055293347,
         "dice": 0.00047986179980165713
@@ -132,9 +132,9 @@
     {
         "sample_name": "Dataset_Group\\04\\images\\BRATS_259_Tumor.nii.gz",
         "method": "new_region_growing",
-        "sensitivity": 0.9965611428796007,
-        "specificity": 0.9986719778540564,
-        "precision": 0.8113850535174312,
+        "sensitivity": 0.8113850535174312,
+        "specificity": 0.9999802605539204,
+        "precision": 0.9965611428796007,
         "accuracy": 0.9986599462365592,
         "iou": 0.8091196273014455,
         "dice": 0.8944899111048399
@@ -142,9 +142,9 @@
     {
         "sample_name": "Dataset_Group\\04\\images\\BRATS_259_Tumor.nii.gz",
         "method": "new_region_growing_with_closing",
-        "sensitivity": 0.9945164599459106,
-        "specificity": 0.998965336752913,
-        "precision": 0.853095051437531,
+        "sensitivity": 0.853095051437531,
+        "specificity": 0.9999668377305864,
+        "precision": 0.9945164599459106,
         "accuracy": 0.9989386200716845,
         "iou": 0.8491010717072471,
         "dice": 0.9183933584801667

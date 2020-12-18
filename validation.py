@@ -1,5 +1,5 @@
 from sklearn.metrics import confusion_matrix
-from utils import result_keys
+from config import result_keys
 import numpy as np
 
 '''
@@ -28,14 +28,14 @@ def get_dice(cm):
 
 
 def get_sensitivity(cm):
-    return cm[1][1] / (cm[1][1] + cm[0][1])
+    return cm[1][1] / (cm[1][1] + cm[1][0])
 
 
 def get_specificity(cm):
-    return cm[0][0] / (cm[0][0] + cm[1][0])
+    return cm[0][0] / (cm[0][0] + cm[0][1])
 
 def get_precision(cm):
-    return cm[1][1]/(cm[1][1]+cm[1][0])
+    return cm[1][1]/(cm[1][1]+cm[0][1])
 
 def get_accuracy(cm):
     return (cm[0][0]+cm[1][1])/np.sum(cm)

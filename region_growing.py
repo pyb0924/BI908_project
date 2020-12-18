@@ -15,6 +15,7 @@ def region_growing(im, t, threshold, seed,abs_flag,tail_max=500000):
     while head <= tail:
         #print(head,tail)
         if tail>tail_max:
+            print('force quit')
             break
         x = xlist[head]
         y = ylist[head]

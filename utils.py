@@ -6,6 +6,7 @@ from nibabel.viewers import OrthoSlicer3D
 import json
 import numpy as np
 from scipy.signal import convolve2d
+
 '''
     ----------Header----------
     constant:
@@ -30,15 +31,6 @@ from scipy.signal import convolve2d
         opening(img: 3d-array, t:int)
         
 '''
-root_path = Path('')
-data_path = Path('Dataset_Group/04')
-result_file_name = 'result.json'
-OTSU_BG = 10
-GROWING_NEIGHBOR = 2
-RG_THRESHOLD = 2
-seed = {'BRATS_008_Output.nii.gz':[84,148,83],'BRATS_033_Output.nii.gz':[85,150,75],'BRATS_259_Output.nii.gz':[120,93,116]}
-result_keys = ['sample_name', 'method', 'sensitivity', 'specificity','precision', 'accuracy', 'iou', 'dice']
-
 
 def read_img(img_path):
     itk_img = itk.ReadImage(img_path)
@@ -78,34 +70,36 @@ def write_result(result, file_name):
     return
 
 
-def convolve3d(img,kernel):
-    n,m,l=img.shape
-    kn,km,kl=kernel.shape
-    img_convolve3d=np.zeros([n,m,l])
-    kn=int((kn-1)/2)
-    #print(kn)
-    for i in tqdm(range(-kn,kn+1)):
-        img_convolve2d=np.zeros([n,m,l])
+def convolve3d(img, kernel):
+    n, m, l = img.shape
+    kn, km, kl = kernel.shape
+    img_convolve3d = np.zeros([n, m, l])
+    kn = int((kn - 1) / 2)
+    # print(kn)
+    for i in tqdm(range(-kn, kn + 1)):
+        img_convolve2d = np.zeros([n, m, l])
         for j in range(n):
-            if (i+j>=0)and(i+j<n): 
-                img_convolve2d[i+j]=convolve2d(img[j],kernel[i+kn],boundary='symm',mode='same') 
-        img_convolve3d  +=  img_convolve2d
+            if (i + j >= 0) and (i + j < n):
+                img_convolve2d[i + j] = convolve2d(img[j], kernel[i + kn], boundary='symm', mode='same')
+        img_convolve3d += img_convolve2d
     return img_convolve3d
 
 
-def dilate(im,t):
-    kernel=np.ones([2*t+1,2*t+1,2*t+1])
-    newimg=convolve3d(im,kernel)
-    newimg[newimg>0]=1
+def dilate(im, t):
+    kernel = np.ones([2 * t + 1, 2 * t + 1, 2 * t + 1])
+    newimg = convolve3d(im, kernel)
+    newimg[newimg > 0] = 1
     return newimg
 
-def erode(im,t):
-    kernel=np.ones([2*t+1,2*t+1,2*t+1])
-    newimg=convolve3d(im,kernel)
-    k=int(np.power(2*t+1,3))
-    newimg[newimg<k]=0
-    newimg[newimg==k]=1
+
+def erode(im, t):
+    kernel = np.ones([2 * t + 1, 2 * t + 1, 2 * t + 1])
+    newimg = convolve3d(im, kernel)
+    k = int(np.power(2 * t + 1, 3))
+    newimg[newimg < k] = 0
+    newimg[newimg == k] = 1
     return newimg
+
 
 def closing(im, t):
     tmp = dilate(im, t)
