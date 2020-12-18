@@ -1,3 +1,4 @@
+from config import data_path
 from utils import *
 
 # Only test I/O, don't run it!
@@ -7,10 +8,9 @@ if __name__ == '__main__':
     print('read finished!')
     show2D(img)
     show3D(img)
-    #write_img(img,'iotest.nii.gz')
-
-    #new_img=read_img('iotest.nii.gz')
-    #print('new image read finished!')
-    #show2D(new_img)
-    #show3D(new_img)
+    write_img(img,'iotest.nii.gz')
+    new_img=read_img('iotest.nii.gz')
+    print('new image read finished!')
+    show2D(new_img)
+    show3D(new_img)
 

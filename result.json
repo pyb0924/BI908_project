@@ -7,7 +7,8 @@
         "precision": 0.9343460299905669,
         "accuracy": 0.9939473566308243,
         "iou": 0.726612735946899,
-        "dice": 0.8416626621816434
+        "dice": 0.8416626621816434,
+        "time_cost": 46.87495517730713
     },
     {
         "sample_name": "Dataset_Group\\04\\images\\BRATS_008_Tumor.nii.gz",
@@ -17,7 +18,8 @@
         "precision": 0.9696024411939118,
         "accuracy": 0.9960211693548388,
         "iou": 0.8154553483297834,
-        "dice": 0.8983480084817302
+        "dice": 0.8983480084817302,
+        "time_cost": 109.2741973400116
     },
     {
         "sample_name": "Dataset_Group\\04\\images\\BRATS_033_Tumor.nii.gz",
@@ -27,7 +29,8 @@
         "precision": 0.799433641683972,
         "accuracy": 0.994335685483871,
         "iou": 0.6261283573482771,
-        "dice": 0.7700847900706963
+        "dice": 0.7700847900706963,
+        "time_cost": 46.88871240615845
     },
     {
         "sample_name": "Dataset_Group\\04\\images\\BRATS_033_Tumor.nii.gz",
@@ -37,7 +40,8 @@
         "precision": 0.9388746931208979,
         "accuracy": 0.997040770609319,
         "iou": 0.7800441243808017,
-        "dice": 0.876432346475843
+        "dice": 0.876432346475843,
+        "time_cost": 108.96210598945618
     },
     {
         "sample_name": "Dataset_Group\\04\\images\\BRATS_259_Tumor.nii.gz",
@@ -47,7 +51,8 @@
         "precision": 0.801038321380435,
         "accuracy": 0.9970519713261649,
         "iou": 0.6465216223475692,
-        "dice": 0.7853181076672104
+        "dice": 0.7853181076672104,
+        "time_cost": 46.12582182884216
     },
     {
         "sample_name": "Dataset_Group\\04\\images\\BRATS_259_Tumor.nii.gz",
@@ -57,7 +62,8 @@
         "precision": 0.7335106144583713,
         "accuracy": 0.9965006720430107,
         "iou": 0.6111325475162122,
-        "dice": 0.7586372064276885
+        "dice": 0.7586372064276885,
+        "time_cost": 114.25365257263184
     },
     {
         "sample_name": "Dataset_Group\\04\\images\\BRATS_008_Tumor.nii.gz",
@@ -67,7 +73,8 @@
         "precision": 0.8850971981257086,
         "accuracy": 0.9916206317204301,
         "iou": 0.6339809482805016,
-        "dice": 0.7759955205691512
+        "dice": 0.7759955205691512,
+        "time_cost": 32.845500230789185
     },
     {
         "sample_name": "Dataset_Group\\04\\images\\BRATS_008_Tumor.nii.gz",
@@ -77,7 +84,8 @@
         "precision": 0.9882715374737014,
         "accuracy": 0.9950036962365592,
         "iou": 0.7643407330705916,
-        "dice": 0.8664321111493719
+        "dice": 0.8664321111493719,
+        "time_cost": 31.565552711486816
     },
     {
         "sample_name": "Dataset_Group\\04\\images\\BRATS_008_Tumor.nii.gz",
@@ -87,7 +95,8 @@
         "precision": 0.9734339658865244,
         "accuracy": 0.996668234767025,
         "iou": 0.845070495893165,
-        "dice": 0.9160305774485671
+        "dice": 0.9160305774485671,
+        "time_cost": 75.573406457901
     },
     {
         "sample_name": "Dataset_Group\\04\\images\\BRATS_033_Tumor.nii.gz",
@@ -97,7 +106,8 @@
         "precision": 0.6650695430942464,
         "accuracy": 0.991836917562724,
         "iou": 0.5320616127437446,
-        "dice": 0.6945694720343316
+        "dice": 0.6945694720343316,
+        "time_cost": 26.09956455230713
     },
     {
         "sample_name": "Dataset_Group\\04\\images\\BRATS_033_Tumor.nii.gz",
@@ -107,7 +117,8 @@
         "precision": 0.8312118780096308,
         "accuracy": 0.9964743503584229,
         "iou": 0.7669164580957599,
-        "dice": 0.868084571380676
+        "dice": 0.868084571380676,
+        "time_cost": 25.88579034805298
     },
     {
         "sample_name": "Dataset_Group\\04\\images\\BRATS_033_Tumor.nii.gz",
@@ -117,7 +128,8 @@
         "precision": 0.7545970971486664,
         "accuracy": 0.995532482078853,
         "iou": 0.7336334070161145,
-        "dice": 0.8463535647698732
+        "dice": 0.8463535647698732,
+        "time_cost": 68.77680253982544
     },
     {
         "sample_name": "Dataset_Group\\04\\images\\BRATS_259_Tumor.nii.gz",
@@ -127,7 +139,8 @@
         "precision": 1.0,
         "accuracy": 0.9930008960573476,
         "iou": 0.00023998848055293347,
-        "dice": 0.00047986179980165713
+        "dice": 0.00047986179980165713,
+        "time_cost": 0.7552449703216553
     },
     {
         "sample_name": "Dataset_Group\\04\\images\\BRATS_259_Tumor.nii.gz",
@@ -137,7 +150,8 @@
         "precision": 0.9965611428796007,
         "accuracy": 0.9986599462365592,
         "iou": 0.8091196273014455,
-        "dice": 0.8944899111048399
+        "dice": 0.8944899111048399,
+        "time_cost": 10.635743379592896
     },
     {
         "sample_name": "Dataset_Group\\04\\images\\BRATS_259_Tumor.nii.gz",
@@ -147,6 +161,7 @@
         "precision": 0.9945164599459106,
         "accuracy": 0.9989386200716845,
         "iou": 0.8491010717072471,
-        "dice": 0.9183933584801667
+        "dice": 0.9183933584801667,
+        "time_cost": 53.55093193054199
     }
 ]

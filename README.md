@@ -16,15 +16,7 @@ BI908生物医学图像处理（1）大作业。对给定的脑肿瘤图像进�
 - run.bat 修改参数--method对应的值即可使用不同方法
 
 ## Dependencies
-- python
-- numpy
-- pandas
-- scikit-learn
-- matplotlib
-- SimpleITK
-- tqdm
-- nibabel
-- opencv-python
+见requirements.txt
 
 
 ## demo
