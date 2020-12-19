@@ -10,3 +10,5 @@ seed = {'BRATS_008_Output.nii.gz': [84, 148, 83], 'BRATS_033_Output.nii.gz': [85
         'BRATS_259_Output.nii.gz': [120, 93, 116]}
 result_keys = ['sample_name', 'method', 'sensitivity', 'specificity', 'precision', 'accuracy', 'iou', 'dice']
 
+
+
