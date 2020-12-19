@@ -1,5 +1,18 @@
 from pathlib import Path
 
+'''
+    ----------Header----------
+    constant:
+        root_path
+        result_file_name
+        OTSU_BG
+        GROWING_NEIGHBOR
+        RG_THRESHOLD
+        seed(dict)
+
+'''
+
+
 root_path = Path('')
 data_path = Path('Dataset_Group/04')
 result_file_name = 'result.json'

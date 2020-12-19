@@ -67,7 +67,6 @@
     \item run.bat文件：命令行运行脚本，用户若需要再不同的分割方式下进行切换，可以直接在该文件中修改参数实现。
     \item main.py文件：整个项目的主函数，包含了从数据读入，调用算法和结果评估，输出结果的全过程。
     \item iotest.py/sitk\_test.py/iotest.nii.gz文件：项目实现过程中的调试文件和调试输出，用户使用时不要运行。
-    \item prepare.py文件：用于将原始数据切片并上采样至256$\times$256的二维图像，其结果输出为jpg格式，存放在train\_data文件夹中。
     \item otsu.py文件：实现了三维的Otsu阈值分割函数。
     \item region\_growing.py文件：实现了三维的区域增长分割函数。
     \item validation.py文件：实现了混淆矩阵(confusion matrix)和所有评价指标的求取。

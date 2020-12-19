@@ -9,14 +9,7 @@ from scipy.signal import convolve2d
 
 '''
     ----------Header----------
-    constant:
-        root_path
-        result_file_name
-        OTSU_BG
-        GROWING_NEIGHBOR
-        RG_THRESHOLD
-        seed(dict)
-        
+    
     image file operation:
         read_img(img_path:str)
         write_img(img: 3d-array ,img_path:str)
@@ -27,6 +20,7 @@ from scipy.signal import convolve2d
     basic operation:
         dilate(img: 3d-array, t:int) # t: structuring_element_size = 2*t + 1
         erode(img: 3d-array, t:int) 
+        convolve3d(img: 3d-array, kernal: 3d-array)
         closing(img: 3d-array, t:int) 
         opening(img: 3d-array, t:int)
         
