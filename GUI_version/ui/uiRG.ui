@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>RegionGrowing</class>
+ <widget class="QWidget" name="RegionGrowing">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>460</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>460</width>
+    <height>300</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>460</width>
+    <height>300</height>
+   </size>
+  </property>
+  <property name="baseSize">
+   <size>
+    <width>380</width>
+    <height>400</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>20</y>
+     <width>441</width>
+     <height>271</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_3">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout" stretch="4,1,4">
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QLabel" name="OtsuBGlabel">
+          <property name="text">
+           <string>邻域阈值</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="OtsuBGlabel_2">
+          <property name="text">
+           <string>邻域半径</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="OtsuBGlabel_3">
+          <property name="text">
+           <string>迭代次数上限</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="OtsuBGlabel_4">
+          <property name="text">
+           <string>去绝对值处理</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>80</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <property name="spacing">
+         <number>15</number>
+        </property>
+        <item>
+         <widget class="QLineEdit" name="RGtEdit"/>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="RGradiusEdit"/>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="RGitermaxEdit"/>
+        </item>
+        <item>
+         <widget class="QComboBox" name="RGtypeBox">
+          <item>
+           <property name="text">
+            <string>否</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>是</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QPushButton" name="affirmButton">
+      <property name="text">
+       <string>确定</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
