@@ -36,22 +36,6 @@ def write_img(img, img_path):
     img = img.transpose(2, 0, 1)
     img_out = itk.GetImageFromArray(img)
     itk.WriteImage(img_out, img_path)
-    return
-
-
-def show2D(img):
-    num = 1
-    queue = img.shape[2]
-    for i in range(0, queue, 10):
-        img_arr = img[:, :, i]
-        plt.subplot(5, 4, num)
-        plt.imshow(img_arr, cmap='gray')
-        num += 1
-    plt.show()
-
-
-def show3D(img):
-    OrthoSlicer3D(img).show()
 
 
 def write_result(result, file_name):

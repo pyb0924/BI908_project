@@ -79,11 +79,6 @@ class Ui_Segmentation_Tool(object):
 
         self.verticalLayout.addWidget(self.newButton)
 
-        self.preButton = QPushButton(self.layoutWidget)
-        self.preButton.setObjectName(u"preButton")
-
-        self.verticalLayout.addWidget(self.preButton)
-
         self.otsuButton = QPushButton(self.layoutWidget)
         self.otsuButton.setObjectName(u"otsuButton")
 
@@ -94,10 +89,10 @@ class Ui_Segmentation_Tool(object):
 
         self.verticalLayout.addWidget(self.rgButton)
 
-        self.open_closeButton = QPushButton(self.layoutWidget)
-        self.open_closeButton.setObjectName(u"open_closeButton")
+        self.ocButton = QPushButton(self.layoutWidget)
+        self.ocButton.setObjectName(u"ocButton")
 
-        self.verticalLayout.addWidget(self.open_closeButton)
+        self.verticalLayout.addWidget(self.ocButton)
 
         self.validButton = QPushButton(self.layoutWidget)
         self.validButton.setObjectName(u"validButton")
@@ -177,10 +172,9 @@ class Ui_Segmentation_Tool(object):
         self.actionClosing.setText(QCoreApplication.translate("Segmentation_Tool", u"Closing", None))
         self.graphicsLabel.setText("")
         self.newButton.setText(QCoreApplication.translate("Segmentation_Tool", u"Open", None))
-        self.preButton.setText(QCoreApplication.translate("Segmentation_Tool", u"LoG Filter", None))
         self.otsuButton.setText(QCoreApplication.translate("Segmentation_Tool", u"Otsu", None))
         self.rgButton.setText(QCoreApplication.translate("Segmentation_Tool", u"Region Growing", None))
-        self.open_closeButton.setText(QCoreApplication.translate("Segmentation_Tool", u"Opening/Closing", None))
+        self.ocButton.setText(QCoreApplication.translate("Segmentation_Tool", u"Opening/Closing", None))
         self.validButton.setText(QCoreApplication.translate("Segmentation_Tool", u"Result Validation", None))
         self.saveButton.setText(QCoreApplication.translate("Segmentation_Tool", u"Save", None))
         self.exitButton.setText(QCoreApplication.translate("Segmentation_Tool", u"Close", None))

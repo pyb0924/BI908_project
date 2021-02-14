@@ -1,3 +1,7 @@
+def run(a, b, c):
+    print(a, b, c)
+
+
 if __name__ == '__main__':
-    s='-1234'
-    print(int(s))
+    d = (1, 2, 3)
+    run(*d)

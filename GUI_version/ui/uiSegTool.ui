@@ -72,13 +72,6 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="preButton">
-         <property name="text">
-          <string>LoG Filter</string>
-         </property>
-        </widget>
-       </item>
-       <item>
         <widget class="QPushButton" name="otsuButton">
          <property name="text">
           <string>Otsu</string>
@@ -93,7 +86,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="open_closeButton">
+        <widget class="QPushButton" name="ocButton">
          <property name="text">
           <string>Opening/Closing</string>
          </property>

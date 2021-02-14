@@ -8,7 +8,7 @@ from subwindow.validwindow import ValidWindow
 from utils import *
 from otsu import otsu2Threshold
 from region_growing import region_growing
-from PySide2.QtCore import Signal, QThread, QThreadPool, QRunnable, QObject
+from PySide2.QtCore import Signal, QThread
 
 
 class MainWindow(QtWidgets.QMainWindow, Ui_Segmentation_Tool):
@@ -21,10 +21,12 @@ class MainWindow(QtWidgets.QMainWindow, Ui_Segmentation_Tool):
         self.valid_window = ValidWindow()
         self.filedialog = QtWidgets.QFileDialog()
         self.errorBox = QtWidgets.QMessageBox()
+        self.workThread = WorkThread()
         self.img = None
 
-        # subwindow signal-slot
+        # subwindow/thread signal-slot
         self.otsu_window.signal.connect(self.returnOtsu)
+        self.workThread.signal.connect(self.returnWork)
 
         # menu action
         self.actionOpen.triggered.connect(self.open_img)
@@ -37,22 +39,38 @@ class MainWindow(QtWidgets.QMainWindow, Ui_Segmentation_Tool):
         self.newButton.clicked.connect(self.open_img)
         self.otsuButton.clicked.connect(self.beginOtsu)
         self.rgButton.clicked.connect(self.beginRG)
+        self.ocButton.clicked.connect(self.beginOC)
         self.validButton.clicked.connect(self.beginValid)
         self.saveButton.clicked.connect(self.save_img)
         self.exitButton.clicked.connect(self.close)
         self.graphicsScroll.sliderMoved.connect(self.show_img)
 
+    # tools
+    def setAllButtons(self, flag):
+        button_list = ['new', 'otsu', 'rg', 'valid', 'save']
+        for button_name in button_list:
+            button = getattr(self, button_name + 'Button')
+            button.setEnabled(flag)
+
     # callback
+    def returnWork(self, img, t1, t2):
+        self.img = img
+        if t1 >= 0:
+            otsu_result = 'Otsu算法完成：t1={},t2={}'.format(t1, t2)
+            self.statusbar.showMessage(otsu_result)
+            self.setAllButtons(True)
+        else:
+            pass  # TODO after rg
+        self.show_img()
 
     def beginOtsu(self):
         self.otsu_window.show()
 
     def returnOtsu(self, num):
         self.statusbar.showMessage('正在进行：Otsu算法……')
-        self.img, t1, t2 = otsu2Threshold(self.img, num)
-        otsu_result = 'Otsu算法完成：t1={},t2={}'.format(t1, t2)
-        self.statusbar.showMessage(otsu_result)
-        self.show_img()
+        self.workThread.set_prams('otsu2Threshold', self.img, num)
+        self.workThread.start()
+        self.setAllButtons(False)
 
     def beginRG(self):
         self.rg_window.show()
@@ -105,25 +123,20 @@ class MainWindow(QtWidgets.QMainWindow, Ui_Segmentation_Tool):
             self.statusbar.showMessage("文件保存失败")
 
 
-'''
-class Thread(QRunnable):
-    def __init__(self, *args):
-        pass
+class WorkThread(QThread):
+    signal = Signal(np.ndarray, int, int)
+
+    def __init__(self):
+        super(WorkThread, self).__init__()
+        self.method = None
+        self.params = None
+
+    def set_prams(self, method, *args):
+        self.method = method
+        self.params = args
 
     def run(self) -> None:
-        pass
-
-
-class Tasks(QObject):
-    max_thread_number = 0
-
-    def __init__(self, max_thread_number):
-        super(Tasks, self).__init__()
-        self.max_thread_number = max_thread_number
-        self.pool = QThreadPool()
-        self.pool.globalInstance()
-
-    def start(self):
-        self.pool.setMaxThreadCount(self.max_thread_number)
-     
-'''
+        result = eval(self.method)(*self.params)
+        if len(result) == 1:
+            result = (result, -1, -1)
+        self.signal.emit(*result)
