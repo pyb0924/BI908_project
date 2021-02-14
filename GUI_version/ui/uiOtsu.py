@@ -20,21 +20,21 @@ class Ui_Otsu(object):
         Otsu.resize(400, 200)
         Otsu.setMinimumSize(QSize(200, 100))
         Otsu.setMaximumSize(QSize(400, 200))
-        self.widget = QWidget(Otsu)
-        self.widget.setObjectName(u"widget")
-        self.widget.setGeometry(QRect(12, 12, 371, 171))
-        self.verticalLayout = QVBoxLayout(self.widget)
+        self.layoutWidget = QWidget(Otsu)
+        self.layoutWidget.setObjectName(u"layoutWidget")
+        self.layoutWidget.setGeometry(QRect(12, 12, 371, 171))
+        self.verticalLayout = QVBoxLayout(self.layoutWidget)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.OtsuBGlabel = QLabel(self.widget)
+        self.OtsuBGlabel = QLabel(self.layoutWidget)
         self.OtsuBGlabel.setObjectName(u"OtsuBGlabel")
         self.OtsuBGlabel.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout.addWidget(self.OtsuBGlabel)
 
-        self.OtsuBGEdit = QLineEdit(self.widget)
+        self.OtsuBGEdit = QLineEdit(self.layoutWidget)
         self.OtsuBGEdit.setObjectName(u"OtsuBGEdit")
         sizePolicy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
@@ -49,26 +49,6 @@ class Ui_Otsu(object):
 
         self.verticalLayout.addLayout(self.horizontalLayout)
 
-        self.horizontalLayout_3 = QHBoxLayout()
-        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
-        self.label = QLabel(self.widget)
-        self.label.setObjectName(u"label")
-
-        self.horizontalLayout_3.addWidget(self.label)
-
-        self.TradButton = QRadioButton(self.widget)
-        self.TradButton.setObjectName(u"TradButton")
-
-        self.horizontalLayout_3.addWidget(self.TradButton)
-
-        self.NewButton = QRadioButton(self.widget)
-        self.NewButton.setObjectName(u"NewButton")
-
-        self.horizontalLayout_3.addWidget(self.NewButton)
-
-
-        self.verticalLayout.addLayout(self.horizontalLayout_3)
-
         self.horizontalLayout_2 = QHBoxLayout()
         self.horizontalLayout_2.setSpacing(0)
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
@@ -76,10 +56,10 @@ class Ui_Otsu(object):
 
         self.horizontalLayout_2.addItem(self.horizontalSpacer_2)
 
-        self.pushButton = QPushButton(self.widget)
-        self.pushButton.setObjectName(u"pushButton")
+        self.affirmButton = QPushButton(self.layoutWidget)
+        self.affirmButton.setObjectName(u"affirmButton")
 
-        self.horizontalLayout_2.addWidget(self.pushButton)
+        self.horizontalLayout_2.addWidget(self.affirmButton)
 
         self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
@@ -97,9 +77,6 @@ class Ui_Otsu(object):
     def retranslateUi(self, Otsu):
         Otsu.setWindowTitle(QCoreApplication.translate("Otsu", u"Form", None))
         self.OtsuBGlabel.setText(QCoreApplication.translate("Otsu", u"\u5ffd\u7565\u7684\u7070\u5ea6\u4e0a\u9650", None))
-        self.label.setText(QCoreApplication.translate("Otsu", u"Type", None))
-        self.TradButton.setText(QCoreApplication.translate("Otsu", u"Traditional", None))
-        self.NewButton.setText(QCoreApplication.translate("Otsu", u"New", None))
-        self.pushButton.setText(QCoreApplication.translate("Otsu", u"\u786e\u5b9a", None))
+        self.affirmButton.setText(QCoreApplication.translate("Otsu", u"\u786e\u5b9a", None))
     # retranslateUi
 

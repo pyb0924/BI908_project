@@ -41,6 +41,7 @@ class Ui_Opening_Closing(object):
 
         self.horizontalLayout.addWidget(self.closingButton)
 
+
         self.verticalLayout.addLayout(self.horizontalLayout)
 
         self.horizontalLayout_2 = QHBoxLayout()
@@ -50,10 +51,11 @@ class Ui_Opening_Closing(object):
 
         self.horizontalLayout_2.addWidget(self.label_2)
 
-        self.timeBox = QSpinBox(self.layoutWidget)
-        self.timeBox.setObjectName(u"timeBox")
+        self.radiusBox = QSpinBox(self.layoutWidget)
+        self.radiusBox.setObjectName(u"radiusBox")
 
-        self.horizontalLayout_2.addWidget(self.timeBox)
+        self.horizontalLayout_2.addWidget(self.radiusBox)
+
 
         self.verticalLayout.addLayout(self.horizontalLayout_2)
 
@@ -62,10 +64,10 @@ class Ui_Opening_Closing(object):
 
         self.verticalLayout.addWidget(self.affirmButton)
 
+
         self.retranslateUi(Opening_Closing)
 
         QMetaObject.connectSlotsByName(Opening_Closing)
-
     # setupUi
 
     def retranslateUi(self, Opening_Closing):
@@ -73,6 +75,7 @@ class Ui_Opening_Closing(object):
         self.label.setText(QCoreApplication.translate("Opening_Closing", u"Type", None))
         self.radioButton.setText(QCoreApplication.translate("Opening_Closing", u"Opening", None))
         self.closingButton.setText(QCoreApplication.translate("Opening_Closing", u"Closing", None))
-        self.label_2.setText(QCoreApplication.translate("Opening_Closing", u"Times", None))
+        self.label_2.setText(QCoreApplication.translate("Opening_Closing", u"Radius", None))
         self.affirmButton.setText(QCoreApplication.translate("Opening_Closing", u"\u786e\u5b9a", None))
     # retranslateUi
+

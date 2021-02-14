@@ -94,15 +94,15 @@ class Ui_Segmentation_Tool(object):
 
         self.verticalLayout.addWidget(self.rgButton)
 
-        self.openingButton = QPushButton(self.layoutWidget)
-        self.openingButton.setObjectName(u"openingButton")
+        self.open_closeButton = QPushButton(self.layoutWidget)
+        self.open_closeButton.setObjectName(u"open_closeButton")
 
-        self.verticalLayout.addWidget(self.openingButton)
+        self.verticalLayout.addWidget(self.open_closeButton)
 
-        self.closingButton = QPushButton(self.layoutWidget)
-        self.closingButton.setObjectName(u"closingButton")
+        self.validButton = QPushButton(self.layoutWidget)
+        self.validButton.setObjectName(u"validButton")
 
-        self.verticalLayout.addWidget(self.closingButton)
+        self.verticalLayout.addWidget(self.validButton)
 
         self.saveButton = QPushButton(self.layoutWidget)
         self.saveButton.setObjectName(u"saveButton")
@@ -180,8 +180,8 @@ class Ui_Segmentation_Tool(object):
         self.preButton.setText(QCoreApplication.translate("Segmentation_Tool", u"LoG Filter", None))
         self.otsuButton.setText(QCoreApplication.translate("Segmentation_Tool", u"Otsu", None))
         self.rgButton.setText(QCoreApplication.translate("Segmentation_Tool", u"Region Growing", None))
-        self.openingButton.setText(QCoreApplication.translate("Segmentation_Tool", u"Opening", None))
-        self.closingButton.setText(QCoreApplication.translate("Segmentation_Tool", u"Closing", None))
+        self.open_closeButton.setText(QCoreApplication.translate("Segmentation_Tool", u"Opening/Closing", None))
+        self.validButton.setText(QCoreApplication.translate("Segmentation_Tool", u"Result Validation", None))
         self.saveButton.setText(QCoreApplication.translate("Segmentation_Tool", u"Save", None))
         self.exitButton.setText(QCoreApplication.translate("Segmentation_Tool", u"Close", None))
         self.menu.setTitle(QCoreApplication.translate("Segmentation_Tool", u"File", None))

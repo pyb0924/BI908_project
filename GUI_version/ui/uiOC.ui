@@ -53,12 +53,12 @@
       <item>
        <widget class="QLabel" name="label_2">
         <property name="text">
-         <string>Times</string>
+         <string>Radius</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QSpinBox" name="timeBox"/>
+       <widget class="QSpinBox" name="radiusBox"/>
       </item>
      </layout>
     </item>

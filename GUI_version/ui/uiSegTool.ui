@@ -100,6 +100,13 @@
         </widget>
        </item>
        <item>
+        <widget class="QPushButton" name="validButton">
+         <property name="text">
+          <string>Result Validation</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QPushButton" name="saveButton">
          <property name="text">
           <string>Save</string>
