@@ -63,7 +63,6 @@ def convolve3d(img, kernel):
 
 
 def dilate(im, t):
-    print('begin dilate')
     kernel = np.ones([2 * t + 1, 2 * t + 1, 2 * t + 1])
     newimg = convolve3d(im, kernel)
     newimg[newimg > 0] = 1
@@ -71,7 +70,6 @@ def dilate(im, t):
 
 
 def erode(im, t):
-    print('begin erode')
     kernel = np.ones([2 * t + 1, 2 * t + 1, 2 * t + 1])
     newimg = convolve3d(im, kernel)
     k = int(np.power(2 * t + 1, 3))
@@ -81,10 +79,12 @@ def erode(im, t):
 
 
 def closing(im, t):
+    print('begin closing')
     tmp = dilate(im, t)
     return erode(tmp, t)
 
 
 def opening(im, t):
+    print('begin opening')
     tmp = erode(im, t)
     return dilate(tmp, t)

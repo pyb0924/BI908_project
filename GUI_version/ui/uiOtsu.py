@@ -75,7 +75,7 @@ class Ui_Otsu(object):
     # setupUi
 
     def retranslateUi(self, Otsu):
-        Otsu.setWindowTitle(QCoreApplication.translate("Otsu", u"Form", None))
+        Otsu.setWindowTitle(QCoreApplication.translate("Otsu", u"Otsu", None))
         self.OtsuBGlabel.setText(QCoreApplication.translate("Otsu", u"\u5ffd\u7565\u7684\u7070\u5ea6\u4e0a\u9650", None))
         self.affirmButton.setText(QCoreApplication.translate("Otsu", u"\u786e\u5b9a", None))
     # retranslateUi

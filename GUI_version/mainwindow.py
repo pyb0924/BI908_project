@@ -1,4 +1,4 @@
-from ui.uiSegTool import Ui_Segmentation_Tool
+from ui.uiSegTool import Ui_SegTool
 from PySide2 import QtWidgets
 from PySide2.QtGui import QPixmap, QImage
 from subwindow.otsuwindow import OtsuWindow
@@ -11,7 +11,7 @@ from region_growing import region_growing
 from PySide2.QtCore import Signal, QThread
 
 
-class MainWindow(QtWidgets.QMainWindow, Ui_Segmentation_Tool):
+class MainWindow(QtWidgets.QMainWindow, Ui_SegTool):
     def __init__(self):
         super(MainWindow, self).__init__()
         self.setupUi(self)
@@ -24,9 +24,10 @@ class MainWindow(QtWidgets.QMainWindow, Ui_Segmentation_Tool):
         self.workThread = WorkThread()
         self.img = None
 
-        # subwindow/thread signal-slot
+        # subWindow/thread signal-slot
         self.otsu_window.signal.connect(self.returnOtsu)
         self.workThread.signal.connect(self.returnWork)
+        self.oc_window.signal.connect(self.returnOC)
 
         # menu action
         self.actionOpen.triggered.connect(self.open_img)
@@ -43,42 +44,64 @@ class MainWindow(QtWidgets.QMainWindow, Ui_Segmentation_Tool):
         self.validButton.clicked.connect(self.beginValid)
         self.saveButton.clicked.connect(self.save_img)
         self.exitButton.clicked.connect(self.close)
+        self.graphicsScroll.SliderValueChange.connect(self.show_img)
         self.graphicsScroll.sliderMoved.connect(self.show_img)
 
     # tools
     def setAllButtons(self, flag):
-        button_list = ['new', 'otsu', 'rg', 'valid', 'save']
+        button_list = ['new', 'otsu', 'rg', 'oc', 'valid', 'save']
         for button_name in button_list:
             button = getattr(self, button_name + 'Button')
             button.setEnabled(flag)
 
-    # callback
-    def returnWork(self, img, t1, t2):
+    def returnWork(self, img, cal_type, thresh):
         self.img = img
-        if t1 >= 0:
-            otsu_result = 'Otsu算法完成：t1={},t2={}'.format(t1, t2)
-            self.statusbar.showMessage(otsu_result)
-            self.setAllButtons(True)
+        method_dict = {1: 'Otsu', 2: 'Region Growing', 3: 'Opening', 4: 'Closing'}
+        if cal_type == 1:
+            message = '{}完成：t1={},t2={}'.format(method_dict[cal_type], *thresh)
         else:
-            pass  # TODO after rg
+            message = '{}完成'.format(method_dict[cal_type])
+        self.statusbar.showMessage(message)
+        self.setAllButtons(True)
         self.show_img()
 
+    # callback
     def beginOtsu(self):
+        if self.img is None:
+            self.errorBox.critical(self, 'Error', "当前没有已打开的文件!")
+            return
         self.otsu_window.show()
 
     def returnOtsu(self, num):
         self.statusbar.showMessage('正在进行：Otsu算法……')
-        self.workThread.set_prams('otsu2Threshold', self.img, num)
+        self.workThread.set_prams(otsu2Threshold, self.img, num)
         self.workThread.start()
         self.setAllButtons(False)
 
     def beginRG(self):
+        if self.img is None:
+            self.errorBox.critical(self, 'Error', "当前没有已打开的文件!")
+            return
         self.rg_window.show()
 
     def beginOC(self):
+        if self.img is None:
+            self.errorBox.critical(self, 'Error', "当前没有已打开的文件!")
+            return
         self.oc_window.show()
 
+    def returnOC(self, flag, radius):
+        oc_type = opening if flag else closing
+        message = '正在进行：{}运算，radius={}'.format(oc_type.__name__, radius)
+        self.statusbar.showMessage(message)
+        self.workThread.set_prams(oc_type, self.img, radius)
+        self.workThread.start()
+        self.setAllButtons(False)
+
     def beginValid(self):
+        if self.img is None:
+            self.errorBox.critical(self, 'Error', "当前没有已打开的文件!")
+            return
         self.valid_window.validThread.img = self.img
         self.valid_window.show()
 
@@ -124,7 +147,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_Segmentation_Tool):
 
 
 class WorkThread(QThread):
-    signal = Signal(np.ndarray, int, int)
+    signal = Signal(np.ndarray, int, tuple)  # 1:Otsu 2:RG 3:Opening 4:Closing
 
     def __init__(self):
         super(WorkThread, self).__init__()
@@ -136,7 +159,10 @@ class WorkThread(QThread):
         self.params = args
 
     def run(self) -> None:
-        result = eval(self.method)(*self.params)
-        if len(result) == 1:
-            result = (result, -1, -1)
+        result = self.method(*self.params)
+        method_dict = {otsu2Threshold: 1, region_growing: 2, opening: 3, closing: 4}
+        if self.method is otsu2Threshold:
+            result = (result[0], 1, (result[1], result[2]))
+        else:
+            result = (result, method_dict[self.method], ())
         self.signal.emit(*result)

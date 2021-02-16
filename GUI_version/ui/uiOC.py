@@ -13,12 +13,12 @@ from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 
 
-class Ui_Opening_Closing(object):
-    def setupUi(self, Opening_Closing):
-        if not Opening_Closing.objectName():
-            Opening_Closing.setObjectName(u"Opening_Closing")
-        Opening_Closing.resize(400, 300)
-        self.layoutWidget = QWidget(Opening_Closing)
+class Ui_OC(object):
+    def setupUi(self, OC):
+        if not OC.objectName():
+            OC.setObjectName(u"OC")
+        OC.resize(400, 300)
+        self.layoutWidget = QWidget(OC)
         self.layoutWidget.setObjectName(u"layoutWidget")
         self.layoutWidget.setGeometry(QRect(20, 30, 361, 221))
         self.verticalLayout = QVBoxLayout(self.layoutWidget)
@@ -31,10 +31,10 @@ class Ui_Opening_Closing(object):
 
         self.horizontalLayout.addWidget(self.label)
 
-        self.radioButton = QRadioButton(self.layoutWidget)
-        self.radioButton.setObjectName(u"radioButton")
+        self.openingButton = QRadioButton(self.layoutWidget)
+        self.openingButton.setObjectName(u"openingButton")
 
-        self.horizontalLayout.addWidget(self.radioButton)
+        self.horizontalLayout.addWidget(self.openingButton)
 
         self.closingButton = QRadioButton(self.layoutWidget)
         self.closingButton.setObjectName(u"closingButton")
@@ -65,17 +65,17 @@ class Ui_Opening_Closing(object):
         self.verticalLayout.addWidget(self.affirmButton)
 
 
-        self.retranslateUi(Opening_Closing)
+        self.retranslateUi(OC)
 
-        QMetaObject.connectSlotsByName(Opening_Closing)
+        QMetaObject.connectSlotsByName(OC)
     # setupUi
 
-    def retranslateUi(self, Opening_Closing):
-        Opening_Closing.setWindowTitle(QCoreApplication.translate("Opening_Closing", u"Form", None))
-        self.label.setText(QCoreApplication.translate("Opening_Closing", u"Type", None))
-        self.radioButton.setText(QCoreApplication.translate("Opening_Closing", u"Opening", None))
-        self.closingButton.setText(QCoreApplication.translate("Opening_Closing", u"Closing", None))
-        self.label_2.setText(QCoreApplication.translate("Opening_Closing", u"Radius", None))
-        self.affirmButton.setText(QCoreApplication.translate("Opening_Closing", u"\u786e\u5b9a", None))
+    def retranslateUi(self, OC):
+        OC.setWindowTitle(QCoreApplication.translate("OC", u"Opening/Closing", None))
+        self.label.setText(QCoreApplication.translate("OC", u"Type", None))
+        self.openingButton.setText(QCoreApplication.translate("OC", u"Opening", None))
+        self.closingButton.setText(QCoreApplication.translate("OC", u"Closing", None))
+        self.label_2.setText(QCoreApplication.translate("OC", u"Radius", None))
+        self.affirmButton.setText(QCoreApplication.translate("OC", u"\u786e\u5b9a", None))
     # retranslateUi
 

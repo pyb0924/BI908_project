@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Opening_Closing</class>
- <widget class="QWidget" name="Opening_Closing">
+ <class>OC</class>
+ <widget class="QWidget" name="OC">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Opening/Closing</string>
   </property>
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
@@ -33,7 +33,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QRadioButton" name="radioButton">
+       <widget class="QRadioButton" name="openingButton">
         <property name="text">
          <string>Opening</string>
         </property>

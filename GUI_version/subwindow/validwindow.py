@@ -26,20 +26,21 @@ class ValidWindow(QtWidgets.QMainWindow, Ui_Validation):
         )
         if self.filepath:
             self.validThread.label = read_img(self.filepath)
-            self.openButton.setText('Calculating……')
+            self.statusbar.showMessage('文件读取完毕')
             self.openButton.setEnabled(False)
             self.saveButton.setEnabled(False)
             self.validThread.start()
+            self.statusbar.showMessage('正在计算评价指标……')
 
     def show_valid(self, cm):
         self.saveButton.setEnabled(True)
         self.openButton.setEnabled(True)
-        self.openButton.setText('Open(Label)')
         self.senEdit.setText(str(get_sensitivity(cm)))
         self.preEdit.setText(str(get_precision(cm)))
         self.accEdit.setText(str(get_accuracy(cm)))
         self.iouEdit.setText(str(get_iou(cm)))
         self.diceEdit.setText(str(get_dice(cm)))
+        self.statusbar.showMessage('评价指标计算完毕')
 
     def saveValid(self):
         if self.filepath:
