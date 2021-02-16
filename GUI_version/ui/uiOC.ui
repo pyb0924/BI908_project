@@ -58,7 +58,11 @@
        </widget>
       </item>
       <item>
-       <widget class="QSpinBox" name="radiusBox"/>
+       <widget class="QSpinBox" name="radiusBox">
+        <property name="minimum">
+         <number>1</number>
+        </property>
+       </widget>
       </item>
      </layout>
     </item>

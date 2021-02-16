@@ -53,6 +53,7 @@ class Ui_OC(object):
 
         self.radiusBox = QSpinBox(self.layoutWidget)
         self.radiusBox.setObjectName(u"radiusBox")
+        self.radiusBox.setMinimum(1)
 
         self.horizontalLayout_2.addWidget(self.radiusBox)
 

@@ -51,7 +51,7 @@ class ValidWindow(QtWidgets.QMainWindow, Ui_Validation):
                 number = float(edit_name.text())
                 result[valid] = number
             write_result(result, 'result.log')
-
+            self.statusbar.showMessage('评价指标已保存')
         else:
             self.errorBox.critical(self, 'Error', '当前没有已经打开的标签！')
 

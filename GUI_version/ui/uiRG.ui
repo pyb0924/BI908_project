@@ -101,16 +101,35 @@
          <number>15</number>
         </property>
         <item>
-         <widget class="QLineEdit" name="RGtEdit"/>
+         <widget class="QSpinBox" name="RGtBox">
+          <property name="minimum">
+           <number>1</number>
+          </property>
+         </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="RGradiusEdit"/>
+         <widget class="QSpinBox" name="RGradiusBox">
+          <property name="minimum">
+           <number>1</number>
+          </property>
+         </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="RGitermaxEdit"/>
+         <widget class="QLineEdit" name="RGitermaxEdit">
+          <property name="text">
+           <string/>
+          </property>
+          <property name="placeholderText">
+           <string/>
+          </property>
+         </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="RGseedEdit"/>
+         <widget class="QLineEdit" name="RGseedEdit">
+          <property name="placeholderText">
+           <string>三维坐标，以逗号分隔</string>
+          </property>
+         </widget>
         </item>
         <item>
          <widget class="QComboBox" name="RGtypeBox">

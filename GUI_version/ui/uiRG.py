@@ -66,15 +66,17 @@ class Ui_RegionGrowing(object):
         self.verticalLayout = QVBoxLayout()
         self.verticalLayout.setSpacing(15)
         self.verticalLayout.setObjectName(u"verticalLayout")
-        self.RGtEdit = QLineEdit(self.layoutWidget)
-        self.RGtEdit.setObjectName(u"RGtEdit")
+        self.RGtBox = QSpinBox(self.layoutWidget)
+        self.RGtBox.setObjectName(u"RGtBox")
+        self.RGtBox.setMinimum(1)
 
-        self.verticalLayout.addWidget(self.RGtEdit)
+        self.verticalLayout.addWidget(self.RGtBox)
 
-        self.RGradiusEdit = QLineEdit(self.layoutWidget)
-        self.RGradiusEdit.setObjectName(u"RGradiusEdit")
+        self.RGradiusBox = QSpinBox(self.layoutWidget)
+        self.RGradiusBox.setObjectName(u"RGradiusBox")
+        self.RGradiusBox.setMinimum(1)
 
-        self.verticalLayout.addWidget(self.RGradiusEdit)
+        self.verticalLayout.addWidget(self.RGradiusBox)
 
         self.RGitermaxEdit = QLineEdit(self.layoutWidget)
         self.RGitermaxEdit.setObjectName(u"RGitermaxEdit")
@@ -120,6 +122,9 @@ class Ui_RegionGrowing(object):
         self.OtsuBGlabel_3.setText(QCoreApplication.translate("RegionGrowing", u"\u8fed\u4ee3\u6b21\u6570\u4e0a\u9650", None))
         self.OtsuBGlabel_5.setText(QCoreApplication.translate("RegionGrowing", u"\u79cd\u5b50\u70b9\u4f4d\u7f6e", None))
         self.OtsuBGlabel_4.setText(QCoreApplication.translate("RegionGrowing", u"\u53bb\u7edd\u5bf9\u503c\u5904\u7406", None))
+        self.RGitermaxEdit.setText("")
+        self.RGitermaxEdit.setPlaceholderText("")
+        self.RGseedEdit.setPlaceholderText(QCoreApplication.translate("RegionGrowing", u"\u4e09\u7ef4\u5750\u6807\uff0c\u4ee5\u9017\u53f7\u5206\u9694", None))
         self.RGtypeBox.setItemText(0, QCoreApplication.translate("RegionGrowing", u"\u5426", None))
         self.RGtypeBox.setItemText(1, QCoreApplication.translate("RegionGrowing", u"\u662f", None))
 

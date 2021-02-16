@@ -28,6 +28,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_SegTool):
         self.otsu_window.signal.connect(self.returnOtsu)
         self.workThread.signal.connect(self.returnWork)
         self.oc_window.signal.connect(self.returnOC)
+        self.rg_window.signal.connect(self.returnRG)
 
         # menu action
         self.actionOpen.triggered.connect(self.open_img)
@@ -44,7 +45,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_SegTool):
         self.validButton.clicked.connect(self.beginValid)
         self.saveButton.clicked.connect(self.save_img)
         self.exitButton.clicked.connect(self.close)
-        self.graphicsScroll.SliderValueChange.connect(self.show_img)
+        self.graphicsScroll.valueChanged.connect(self.show_img)
         self.graphicsScroll.sliderMoved.connect(self.show_img)
 
     # tools
@@ -84,6 +85,12 @@ class MainWindow(QtWidgets.QMainWindow, Ui_SegTool):
             return
         self.rg_window.show()
 
+    def returnRG(self, radius, threshold, seed, abs_flag, iter_max):
+        self.statusbar.showMessage('正在进行：Region Growing……')
+        self.workThread.set_prams(region_growing, self.img, radius, threshold, seed, abs_flag, iter_max)
+        self.workThread.start()
+        self.setAllButtons(False)
+
     def beginOC(self):
         if self.img is None:
             self.errorBox.critical(self, 'Error', "当前没有已打开的文件!")
@@ -106,7 +113,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_SegTool):
         self.valid_window.show()
 
     def open_img(self):
-        self.statusbar.showMessage('打开文件')
+        self.statusbar.showMessage('正在打开文件……')
 
         filepath, filetype = self.filedialog.getOpenFileName(
             self, '选择要处理的图片 *.nii.gz',
